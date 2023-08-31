@@ -3,13 +3,17 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
+    "test": "npm run test-specific",
+    "test-specific": "node --unhandled-rejections=strict scripts-runner.js test:*",
+    "test:--nasa-feed": "node tests/nasa-feed.test.js",
     "start": "parcel src/index.html",
-    "build": "parcel build src/index.html"
+    "build": "npm run test && parcel build src/index.html"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "axios": "^1.5.0",
     "babel-eslint": "^10.1.0",
     "eslint": "^8.48.0",
     "eslint-plugin-react": "^7.33.2",
